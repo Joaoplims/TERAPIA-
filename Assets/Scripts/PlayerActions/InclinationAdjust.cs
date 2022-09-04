@@ -5,7 +5,7 @@ using UnityEngine;
 public class InclinationAdjust : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private float angleInclination;
+    [SerializeField] private float angleInclination = 15f;
     private float finalInclination;
     private Vector3 worldDirection;
 
