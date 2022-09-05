@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d31fa4d3d8dbc564ab3f7bf37d552233, type: 3}
-  m_Name: New Dialog Data
+  m_Name: ASHDUAHSD
   m_EditorClassIdentifier: 
-  DialogEntityName: Rina Sawayama
+  DialogEntityName: 
   DialogEnityPicture: {fileID: 0}
   messages:
-  - MessageText: Follow me!
-    FontColor: {r: 1, g: 0, b: 0, a: 1}
-    FontSize: 50
+  - MessageText: 
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 0
     FontType: {fileID: 0}
-  - MessageText: Behide you
-    FontColor: {r: 1, g: 0, b: 0, a: 1}
-    FontSize: 50
+  - MessageText: 
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 0
+    FontType: {fileID: 0}
+  - MessageText: 
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 0
     FontType: {fileID: 0}

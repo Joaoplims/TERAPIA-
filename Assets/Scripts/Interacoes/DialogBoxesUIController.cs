@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DialogBoxesUIController :MonoBehaviour
 {
+    public bool PressedContinue{ get;set;}
     public static DialogBoxesUIController instance;
     [SerializeField] private RectTransform GenericBoxDialog;
 
@@ -16,9 +17,14 @@ public class DialogBoxesUIController :MonoBehaviour
     }
     public void OpenGenericBoxDialog(DialogData data)
     {
-        MoveUP_OpenAnimation(GenericBoxDialog);
         var tmpText = GenericBoxDialog.GetComponentInChildren<TMP_Text>( );
-        StartCoroutine(AnimateListOfTextMsg(data.messages , tmpText));
+        var seq = LeanTween.sequence( );
+        var titleName = GenericBoxDialog.transform.Find("BGEntityName_Image").GetChild(0).GetComponent<TMP_Text>();
+        titleName.text = data.DialogEntityName;
+        seq.append(() => MoveUP_OpenAnimation(GenericBoxDialog));
+        seq.append(0.1f);
+        seq.append(() => StartCoroutine(AnimateListOfTextMsg(data.messages , tmpText)));
+
     }
     public void CloseGenericBoxDialog()
     {
@@ -40,15 +46,24 @@ public class DialogBoxesUIController :MonoBehaviour
     private IEnumerator AnimateListOfTextMsg(List<MessageData> data , TMP_Text text)
     {
 
-        foreach (var item in data)
+        for (int i = 0; i < data.Count; i++)
         {
-            text.fontSize = item.FontSize;
-            text.color = item.FontColor;
-            if (item.FontType != null)
-                text.font = item.FontType;
-            yield return AnimateText(item.MessageText , text);
-
+            text.fontSize = data[i].FontSize;
+            text.color = data[i].FontColor;
+            if (data[i].FontType != null)
+                text.font = data[i].FontType;
+            yield return AnimateText(data[i].MessageText , text);
+            if (data.Count > 1)
+            {
+                while(PressedContinue == false)
+                {
+                    yield return null;
+                }
+                PressedContinue = false;
+            }
         }
+
+
     }
     private IEnumerator AnimateText(string msg , TMP_Text text)
     {
