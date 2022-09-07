@@ -19,3 +19,7 @@ MonoBehaviour:
     FontColor: {r: 1, g: 0, b: 0, a: 1}
     FontSize: 50
     FontType: {fileID: 0}
+  - MessageText: Behide you
+    FontColor: {r: 1, g: 0, b: 0, a: 1}
+    FontSize: 50
+    FontType: {fileID: 0}
