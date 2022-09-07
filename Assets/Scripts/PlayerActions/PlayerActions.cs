@@ -125,9 +125,9 @@ namespace Terapia
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Alow");
             if (other.CompareTag("Enemy"))
             {
+            
                 LockInput = true;
                 hudManager.ShowEndGamePanel( );
                 other.GetComponent<IEnableInput>( ).LockInput = true;

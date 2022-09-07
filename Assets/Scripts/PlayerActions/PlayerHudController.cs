@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerHudController :MonoBehaviour
 {
     [SerializeField] private CanvasGroup endGamePanel;
+    [SerializeField] private CanvasGroup screenShakeFX;
     [SerializeField] private TMP_Text maxPillsText;
     [SerializeField] private TMP_Text collectedPillsText;
     [SerializeField] private Slider staminaSlider;
@@ -28,6 +29,12 @@ public class PlayerHudController :MonoBehaviour
     {
         LeanTween.alphaCanvas(endGamePanel, 1f, 0.5f);
 
+    }
+
+    public void ShowScreenShakeFX(){
+        var seq = LeanTween.sequence();
+        
+        seq.append()
     }
 
 }

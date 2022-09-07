@@ -3,30 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(SphereCollider))]
+
 public class SurroundSensor :MonoBehaviour
 {
+    public LayerMask targetsMask;
     public Transform Target { get; private set; }
 
     [SerializeField] private float radius = 7f;
 
-    private SphereCollider sphereCollider;
+    private Collider[] checkColliders;
     private void Start()
     {
-        sphereCollider = GetComponent<SphereCollider>( );
-        sphereCollider.radius = radius;
-        sphereCollider.isTrigger = true;
+        checkColliders = new Collider[5];
+        InvokeRepeating("CheckSurround", 0f,0.1f);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            Target = other.transform;
+
+    public void CheckSurround(){
+        int targets = Physics.OverlapSphereNonAlloc(transform.position, radius, checkColliders, targetsMask);
+        if(targets > 0){
+            if(checkColliders[0].CompareTag("Player")){
+                Target = checkColliders[0].transform;
+            }
+            else{
+                Target = null;
+            }
+        }
+        else{
+            Target = null;
+        }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnDrawGizmos()
     {
-        if (other.CompareTag("Player"))
-            Invoke("RemoveTargetAfter",1f);
+        Gizmos.color= Color.blue;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 
     private void RemoveTargetAfter()

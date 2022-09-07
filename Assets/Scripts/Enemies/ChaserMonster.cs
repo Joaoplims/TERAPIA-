@@ -240,16 +240,6 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position , 7f);
-
-    }
-
-
-
-
     public enum MonsterStates
     {
         None,

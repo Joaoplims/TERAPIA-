@@ -255,7 +255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10.099976, y: -2.0236206}
+  m_AnchoredPosition: {x: 10.100098, y: -2.0236816}
   m_SizeDelta: {x: 31.2188, y: 34.9764}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &96514155
@@ -771,13 +771,14 @@ GameObject:
   - component: {fileID: 232023548}
   - component: {fileID: 232023550}
   - component: {fileID: 232023549}
+  - component: {fileID: 232023551}
   m_Layer: 5
   m_Name: ScreenEffect_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &232023548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -811,15 +812,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7882353}
+  m_Color: {r: 0.09849739, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: eb711d62f369c80488bbc0cff7178372, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -836,6 +837,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232023547}
   m_CullTransparentMesh: 1
+--- !u!225 &232023551
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232023547}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &246444438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1adccd92af979084995ff66309b87101, type: 3}
@@ -3493,7 +3506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafa69745683d0b4bb2b560e44fe673c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endGamePanel: {fileID: 0}
+  endGamePanel: {fileID: 1490012878}
   maxPillsText: {fileID: 1744629815}
   collectedPillsText: {fileID: 96514155}
   staminaSlider: {fileID: 1796568098}
@@ -3690,6 +3703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5a98c5068e5034b9073ca5023d1858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerp: 1
   Target: {fileID: 1791302237}
   Offset: {x: 0, y: 20, z: 0}
   followSpeed: 3
@@ -5367,6 +5381,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493912708}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1513994363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4301171595508297203, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
+  m_PrefabInstance: {fileID: 2742480708223422138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c70ce1c24a439418c606bdfe9f3cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1597038930
 Mesh:
   m_ObjectHideFlags: 0
@@ -6391,7 +6416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 41.600006, y: -2.0236206}
+  m_AnchoredPosition: {x: 41.600098, y: -2.0236816}
   m_SizeDelta: {x: 31.2188, y: 34.9764}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1744629815
@@ -6699,7 +6724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 6.299988, y: -37}
+  m_AnchoredPosition: {x: 6.300049, y: -37}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1796568098
@@ -8647,12 +8672,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2742480708348124526, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2742480708800431506, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
       propertyPath: m_StoppingDistance
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2742480708800431516, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742480708800431516, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
       propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742480708800431516, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2742480708800431517, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
@@ -8711,6 +8748,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1791302237}
+    - target: {fileID: 2742480708800431519, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
+      propertyPath: surroundSensor
+      value: 
+      objectReference: {fileID: 1513994363}
     - target: {fileID: 2742480708800431519, guid: 96bfa1a3781b2e14caf8cdc51c6b7e49, type: 3}
       propertyPath: monsterAnimator
       value: 
