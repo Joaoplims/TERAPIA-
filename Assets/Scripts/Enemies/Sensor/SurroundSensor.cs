@@ -26,7 +26,12 @@ public class SurroundSensor :MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-            Target = null;
+            Invoke("RemoveTargetAfter",1f);
+    }
+
+    private void RemoveTargetAfter()
+    {
+        Target = null;
     }
 
 }

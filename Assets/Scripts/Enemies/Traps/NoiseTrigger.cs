@@ -23,12 +23,10 @@ public class NoiseTrigger :MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Oi Player?");
             EmitNoise( );
         }
         if (other.CompareTag("Enemy"))
         {
-Debug.Log("Oi Monstro?");
             var monster = other.GetComponent<ChaserMonster>();
             monster.ChangeState(ChaserMonster.MonsterStates.FollowingNoise);
             monster.NoiseTarget = transform;

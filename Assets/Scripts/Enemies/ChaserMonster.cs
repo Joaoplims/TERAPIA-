@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Terapia;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChaserMonster :MonoBehaviour
+public class ChaserMonster :MonoBehaviour, IEnableInput
 {
     public Transform NoiseTarget { get; set; }
+    public bool LockInput { get; set; }
 
     [SerializeField] private MonsterStates currentState = MonsterStates.None;
     [Space]
@@ -32,6 +34,7 @@ public class ChaserMonster :MonoBehaviour
 
     private void Start()
     {
+        LockInput = false;
         agent = GetComponent<NavMeshAgent>( );
         currentState = MonsterStates.Wandering;
         rangeChecks = new Collider[10];
@@ -39,6 +42,11 @@ public class ChaserMonster :MonoBehaviour
     }
     private void Update()
     {
+        if (LockInput)
+        {
+            agent.isStopped = true;
+            return;
+        }
         // handle states
         switch (currentState)
         {
@@ -66,7 +74,54 @@ public class ChaserMonster :MonoBehaviour
 
     public void ChangeState(MonsterStates newState)
     {
+        if (newState == currentState)
+            return;
+
+        // on Exit current state
+
+
         currentState = newState;
+
+        // On Enter NewState
+        switch (currentState)
+        {
+            case MonsterStates.None:
+            break;
+            case MonsterStates.Wandering:
+            break;
+            case MonsterStates.Chassing:
+            //int rand = Random.Range(0 , 2);
+            //switch (rand)
+            //{
+            //    case 1:
+            //    AudioManager.Instancia.PlaySfx(1);
+            //    break;
+            //    case 2:
+            //    AudioManager.Instancia.PlaySfx(2);
+            //    break;
+            //    default:
+            //    break;
+            //}
+            break;
+            case MonsterStates.LookingFor:
+            break;
+            case MonsterStates.FollowingNoise:
+            int randx = Random.Range(1 , 2);
+            switch (randx)
+            {
+                case 1:
+                AudioManager.Instancia.PlaySfx(3);
+                break;
+                case 2:
+                AudioManager.Instancia.PlaySfx(4);
+                break;
+                default:
+                break;
+            }
+            break;
+            default:
+            break;
+        }
     }
 
     private void PerformFollowNoiseState()
@@ -74,18 +129,19 @@ public class ChaserMonster :MonoBehaviour
         CheckAround( );
 
         agent.SetDestination(NoiseTarget.position);
-        if(NoiseTarget!= null && Vector3.Distance(transform.position, NoiseTarget.position) <= 0.1f) currentState = MonsterStates.Wandering;
+        if (NoiseTarget != null && Vector3.Distance(transform.position , NoiseTarget.position) < 0.1f)
+            ChangeState(MonsterStates.Wandering);
     }
     private void PerformLookingForState()
     {
         if (surroundSensor.Target != null)
-            currentState = MonsterStates.Wandering;
+            ChangeState(MonsterStates.Wandering);
 
         agent.isStopped = true;
         timerStayInState += Time.deltaTime;
         if (timerStayInState >= 5f)
         {
-            currentState = MonsterStates.Wandering;
+            ChangeState(MonsterStates.Wandering);
             timerStayInState = 0;
         }
     }
@@ -144,7 +200,8 @@ public class ChaserMonster :MonoBehaviour
             if (Physics.Raycast(transform.position , pos2TargetDir , distance , obstructionMask) == false)
             {
                 Debug.Log("Colidi com algo que nao obstrui visao");
-                currentState = MonsterStates.Chassing;
+                //currentState = MonsterStates.Chassing;
+                ChangeState(MonsterStates.Chassing);
 
             }
             else
@@ -154,46 +211,34 @@ public class ChaserMonster :MonoBehaviour
                 {
                     if (rangeChecks[0].CompareTag("Player"))
                     {
-                        currentState = MonsterStates.Chassing;
+                        ChangeState(MonsterStates.Chassing);
                     }
                 }
                 else
                 {
-                    currentState = MonsterStates.Wandering;
+                    ChangeState(MonsterStates.Wandering);
                 }
             }
         }
         else
         {
-            currentState = MonsterStates.Wandering;
+            ChangeState(MonsterStates.Wandering);
         }
     }
     private void CheckIfPlayerStillInSight()
     {
         Debug.DrawRay(transform.position , ( target.transform.position - transform.position ).normalized * maxSightDistance , Color.red);
-        if (Vector3.Distance(transform.position , target.position) <= maxSightDistance)
+        if (Vector3.Distance(transform.position , target.position) < maxSightDistance)
         {
-            currentState = MonsterStates.Chassing;
+            //currentState = MonsterStates.Chassing;
+            ChangeState(MonsterStates.Chassing);
         }
         else
         {
-            currentState = MonsterStates.LookingFor;
+            //currentState = MonsterStates.LookingFor;
+            ChangeState(MonsterStates.LookingFor);
         }
     }
-    private IEnumerator LookingForAnimation()
-    {
-        //agent.isStopped = true;
-        currentState = MonsterStates.Wandering;
-        for (int i = 0; i < 10; i++)
-        {
-            transform.Rotate(transform.rotation.x , transform.rotation.y + 36f , transform.rotation.z);
-            yield return new WaitForSeconds(1);
-        }
-
-        currentState = MonsterStates.Wandering;
-
-    }
-
 
     private void OnDrawGizmos()
     {
@@ -201,6 +246,8 @@ public class ChaserMonster :MonoBehaviour
         Gizmos.DrawWireSphere(transform.position , 7f);
 
     }
+
+
 
 
     public enum MonsterStates
