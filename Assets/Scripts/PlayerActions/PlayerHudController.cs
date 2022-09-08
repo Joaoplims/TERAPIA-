@@ -33,8 +33,11 @@ public class PlayerHudController :MonoBehaviour
 
     public void ShowScreenShakeFX(){
         var seq = LeanTween.sequence();
-        
-        seq.append()
+        seq.append(LeanTween.alphaCanvas(screenShakeFX, 1f, 0.5f).setLoopPingPong());
+        seq.append(11f);
+        seq.append(() => LeanTween.cancel(screenShakeFX.gameObject));
+        seq.append(() => screenShakeFX.alpha = 0);
+
     }
 
 }

@@ -18,7 +18,9 @@ public class Pill : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             AudioManager.Instancia.PlaySfx(codSfx);
-            other.GetComponent<PlayerActions>().SetDebuff(debuff);
+            var player = other.GetComponent<PlayerActions>();
+            player.SetDebuff(debuff);
+            player.IncrementPillsCount();
             OnUse?.Invoke();
             Destroy(gameObject);
         }
