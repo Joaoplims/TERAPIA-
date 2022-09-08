@@ -12,10 +12,12 @@ namespace Terapia
     {
         public bool LockInput { get; set; }
         public bool InvertControlls { get; set; }
+        private int pills = 0;
 
         [SerializeField] private float playerSpeed = 2.0f;
         [SerializeField] private PlayerStates currentState = PlayerStates.Walking;
         [SerializeField] private PlayerHudController hudManager;
+        [SerializeField] private ParticleSystem invertControllsParticle;
 
         private float staminaAmmout = 1;
         private float maxStamina = 1f;
@@ -25,6 +27,7 @@ namespace Terapia
         private void Start()
         {
             controller = gameObject.GetComponent<CharacterController>( );
+            invertControllsParticle.Stop( );
             LockInput = false;
         }
 
@@ -92,10 +95,12 @@ namespace Terapia
                 break;
                 case DebuffTypes.InvertControll:
                 InvertControlls = true;
-                this.Invoke(() => InvertControlls = false , 2f);
+                invertControllsParticle.Play( );
+                this.Invoke(() => { InvertControlls = false; invertControllsParticle.Stop( ); } , 6f);
                 break;
                 case DebuffTypes.ScreenShake:
-                this.Invoke(() => CameraShake.instance.Shake(15f) , 1f);
+                this.Invoke(() => { CameraShake.instance.Shake(15f); hudManager.ShowScreenShakeFX( ); } , 1f);
+
                 break;
                 default:
                 break;
@@ -107,6 +112,12 @@ namespace Terapia
             hudManager.ShowEndGamePanel( );
         }
 
+        public void IncrementPillsCount()
+        {
+            pills++;
+            hudManager.SetCollectedPills(pills);
+
+        }
         private void RecoverStamina()
         {
             if (enableStaminaRecovery == true)
@@ -127,7 +138,7 @@ namespace Terapia
         {
             if (other.CompareTag("Enemy"))
             {
-            
+
                 LockInput = true;
                 hudManager.ShowEndGamePanel( );
                 other.GetComponent<IEnableInput>( ).LockInput = true;
