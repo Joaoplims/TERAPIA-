@@ -42,7 +42,7 @@ public abstract class InteractableObject :MonoBehaviour, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            focalPointMarker.SetActive(false);
+            focalPointMarker.SetActive(true);
             OnEnterInteractableArea?.Invoke( );
             enableInteraction = true;
         }
@@ -62,7 +62,7 @@ public abstract class InteractableObject :MonoBehaviour, IInteractable
         {
             blockInteraction = false;
             OnExitInteractableArea?.Invoke( );
-            focalPointMarker.SetActive(true);
+            focalPointMarker.SetActive(false);
             enableInteraction = false;
         }
     }
