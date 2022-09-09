@@ -19,8 +19,8 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
     [SerializeField] private LayerMask targetMask;
     [Space]
     [SerializeField] private List<Transform> waypoints;
-    [SerializeField] private int currentWaypoint = 0;
 
+    private int currentWaypoint = 0;
     private float timerStayInState = 0f;
 
 
@@ -199,7 +199,6 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
             float distance = Vector3.Distance(transform.position , pos2TargetDir);
             if (Physics.Raycast(transform.position , pos2TargetDir , distance , obstructionMask) == false)
             {
-                Debug.Log("Colidi com algo que nao obstrui visao");
                 //currentState = MonsterStates.Chassing;
                 ChangeState(MonsterStates.Chassing);
 

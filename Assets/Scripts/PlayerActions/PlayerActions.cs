@@ -41,7 +41,7 @@ namespace Terapia
             if (Keyboard.current.leftShiftKey.isPressed && inputMoveVector != Vector3.zero)
             {
                 currentState = PlayerStates.Running;
-                staminaAmmout -= 0.01f;
+                staminaAmmout -= 0.005f;
                 hudManager.SetStaminaValue(staminaAmmout);
                 if (staminaAmmout <= 0f)
                 {
@@ -123,13 +123,14 @@ namespace Terapia
             LockInput = true;
             hudManager.ShowEndGamePanel( );
         }
-
         public void IncrementPillsCount()
         {
             pills++;
             hudManager.SetCollectedPills(pills);
 
         }
+
+
         private void RecoverStamina()
         {
             if (enableStaminaRecovery == true)
@@ -145,12 +146,11 @@ namespace Terapia
                 hudManager.SetStaminaValue(staminaAmmout);
             }
         }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Enemy"))
             {
-
+                Debug.Log("Alo");
                 LockInput = true;
                 hudManager.ShowEndGamePanel( );
                 other.GetComponent<IEnableInput>( ).LockInput = true;

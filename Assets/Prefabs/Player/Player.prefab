@@ -45,10 +45,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
-  m_Intensity: 20.36
+  m_Intensity: 19.39
   m_Range: 16.78
-  m_SpotAngle: 78.09776
-  m_InnerSpotAngle: 46.15545
+  m_SpotAngle: 111.60789
+  m_InnerSpotAngle: 79.66559
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -5007,13 +5007,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 3.04
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.69, z: 0}
 --- !u!114 &3398248323310218303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5052,6 +5052,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3398248322488477857}
     m_Modifications:
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 69f60297b7648ff41be012b32704e386, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79216bc40253dd14498c1e83bb9eefdc, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b3b99d2f632434f8adc8a39e3eca00, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bfe29f5e27ab1c43b7c36a5955b0375, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 917cc8def82af1e4c932cf045b0a25fd, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55e5d81c5b467da48982160977821fdc, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3aff24d786a42894abe39f6324d6ea80, type: 2}
+    - target: {fileID: 1111119342186161236, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec76bcd834b1291448bfdf4371a0f691, type: 2}
     - target: {fileID: 2621985979637725666, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
       propertyPath: m_Name
       value: Jovem_3D
@@ -5059,6 +5091,18 @@ PrefabInstance:
     - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5099,6 +5143,10 @@ PrefabInstance:
     - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398241861120041816, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ead97303afa8c94eac7edcea67f63d8, type: 3}
