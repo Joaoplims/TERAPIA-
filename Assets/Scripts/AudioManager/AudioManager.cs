@@ -24,11 +24,15 @@ public class AudioManager :MonoBehaviour
         sfxSource.PlayOneShot(sfxClips[codSfx]);
     }
 
-    public void PlayAmbientSound(int codAmbient){
-        ambientSource.Stop();
+    public void PlayAmbientSound(int codAmbient)
+    {
+        ambientSource.Stop( );
         ambientSource.clip = ambientClips[codAmbient];
-        ambientSource.Play();
+        ambientSource.Play( );
     }
+
+
+
 
 
 }
