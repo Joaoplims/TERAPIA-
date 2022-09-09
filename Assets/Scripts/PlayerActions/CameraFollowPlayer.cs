@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
+    public bool lerp = true;
     public Transform Target;
     public Vector3 Offset;
     public float followSpeed;
@@ -11,6 +12,11 @@ public class CameraFollowPlayer : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, Target.position + Offset, Time.deltaTime * followSpeed);
+        if(lerp)
+            transform.position = Vector3.Lerp(transform.position, Target.position + Offset, Time.deltaTime * followSpeed);
+        else
+        {
+            transform.position = Target.position + Offset;
+        }
     }
 }

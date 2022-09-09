@@ -17,33 +17,42 @@ public abstract class InteractableObject :MonoBehaviour, IInteractable
 
     protected bool blockInteraction = false;
     protected Collider col;
+    protected bool enableInteraction = false;
     private void Awake()
     {
-        col = GetComponent<Collider>();
+        col = GetComponent<Collider>( );
         col.isTrigger = true;
     }
     public abstract void Interact();
+
+    protected void Update()
+    {
+        if (enableInteraction == true)
+        {
+            if (blockInteraction == false && Keyboard.current.eKey.wasPressedThisFrame == true)
+            {
+                blockInteraction = true;
+                Interact( );
+                OnInteract?.Invoke( );
+            }
+        }
+    }
 
     public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             focalPointMarker.SetActive(false);
-            OnEnterInteractableArea?.Invoke();
+            OnEnterInteractableArea?.Invoke( );
+            enableInteraction = true;
         }
     }
     public virtual void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(Keyboard.current.eKey.wasPressedThisFrame);
-            if(blockInteraction == false && Keyboard.current.eKey.wasPressedThisFrame == true)
-            {
-                blockInteraction = true;
-                Interact();
-                OnInteract?.Invoke();
-            }
-            OnStayInteractableArea?.Invoke();
+
+            OnStayInteractableArea?.Invoke( );
         }
     }
 
@@ -52,8 +61,9 @@ public abstract class InteractableObject :MonoBehaviour, IInteractable
         if (other.gameObject.CompareTag("Player"))
         {
             blockInteraction = false;
-            OnExitInteractableArea?.Invoke();
+            OnExitInteractableArea?.Invoke( );
             focalPointMarker.SetActive(true);
+            enableInteraction = false;
         }
     }
 }
