@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31fa4d3d8dbc564ab3f7bf37d552233, type: 3}
+  m_Name: Banheiro
+  m_EditorClassIdentifier: 
+  DialogEntityName: Box masculino
+  DialogEnityPicture: {fileID: 0}
+  messages:
+  - MessageText: "T\xE1, esse banheiro parece seguro, mas ele continua l\xE1 fora."
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 14
+    FontType: {fileID: 0}
+  - MessageText: "Era assim naquela \xE9poca tamb\xE9m. Eu trancava a porta e usava
+      meus rem\xE9dios, eu estava abusando deles, mas era um escapismo."
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 14
+    FontType: {fileID: 0}
+  - MessageText: "Acho que n\xE3o posso ficar aqui por muito tempo, ele vai acabar
+      me encontrando assim."
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 14
+    FontType: {fileID: 0}
+  - MessageText: Eu ouvi uma outra porta se abrindo, deve ser um sinal. Mas e se
+      for ele? Tenho que conferir.
+    FontColor: {r: 0, g: 0, b: 0, a: 0}
+    FontSize: 14
+    FontType: {fileID: 0}
