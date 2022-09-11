@@ -10,6 +10,7 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
     public bool LockInput { get; set; }
 
     [SerializeField] private MonsterStates currentState = MonsterStates.None;
+    [SerializeField] private Animator monsterAnimator;
     [Space]
     [SerializeField] private SurroundSensor surroundSensor;
     [SerializeField] private float fovAngle;
@@ -68,6 +69,8 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
             PerformFollowNoiseState( );
             break;
         }
+
+        Debug.Log(agent.velocity.sqrMagnitude);
 
     }
 
