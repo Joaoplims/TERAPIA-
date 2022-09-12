@@ -6,7 +6,9 @@ using UnityEngine.Events;
 
 public class Pill : MonoBehaviour
 {
+    public UnityEvent OnEndEffect;
     public UnityEvent OnUse;
+
 
     [SerializeField] private DebuffTypes debuff;
     [SerializeField] private int codSfx;
@@ -19,7 +21,7 @@ public class Pill : MonoBehaviour
         {
             AudioManager.Instancia.PlaySfx(codSfx);
             var player = other.GetComponent<PlayerActions>();
-            player.SetDebuff(debuff);
+            player.SetDebuff(debuff, OnEndEffect.Invoke);
             player.IncrementPillsCount();
             OnUse?.Invoke();
             Destroy(gameObject);

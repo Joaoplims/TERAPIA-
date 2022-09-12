@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31fa4d3d8dbc564ab3f7bf37d552233, type: 3}
+  m_Name: DialogoInicial
+  m_EditorClassIdentifier: 
+  DialogEntityName: "Voc\xEA"
+  DialogEnityPicture: {fileID: 0}
+  messages:
+  - MessageText: "Um m\xEAs atr\xE1s eu recebi um convite, de um programa experimental
+      - Combate Ativo a Traumas Passados - foi algo que me deixou intrigado, mas
+      n\xE3o dei muita import\xE2ncia.\r"
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
+    FontType: {fileID: 0}
+  - MessageText: "Por\xE9m durante o trabalho, eu tive uma crise de ansiedade, o
+      meu novo colega de trabalho \xE9 um conhecido da \xE9poca do col\xE9gio. Uma
+      \xE9poca que eu gostaria que n\xE3o fosse mais lembrada, algo que eu queria
+      apagar. \r"
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
+    FontType: {fileID: 0}
+  - MessageText: "Hoje, eu decidi dar uma tentativa naquele programa. O processo
+      para iniciar foi mais simples que imaginei, apenas alguns pap\xE9is assinados
+      e pronto. Tenho que admitir, fiquei com medo quando o m\xE9dico me deu a p\xEDlula
+      e come\xE7ou a falar algumas coisas."
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
+    FontType: {fileID: 0}
+  - MessageText: "Ele disse que irei presenciar na minha mente, a experi\xEAncia
+      que est\xE1 atrelada ao meu trauma, irei encontrar meus pontos seguros e com
+      isso superar minha dor. A experi\xEAncia de reviver esses momentos \xE9 algo
+      forte para a mente, que pode trazer coisas ruins \xE0 tona, mas que faz parte
+      do processo - efeitos colaterais - ele disse."
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
+    FontType: {fileID: 0}

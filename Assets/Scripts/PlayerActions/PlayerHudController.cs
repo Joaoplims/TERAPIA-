@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,23 +21,25 @@ public class PlayerHudController :MonoBehaviour
     public void SetMaxStamina(float maxValue)
     {
         staminaSlider.maxValue = maxValue;
-        staminaSlider.transform.localScale = new Vector3(maxValue, 1f,1f);
-        
+        staminaSlider.transform.localScale = new Vector3(maxValue , 1f , 1f);
+
 
     }
 
     public void ShowEndGamePanel()
     {
-        LeanTween.alphaCanvas(endGamePanel, 1f, 0.5f);
+        LeanTween.alphaCanvas(endGamePanel , 1f , 0.5f).setOnComplete(() => { endGamePanel.interactable = true; endGamePanel.blocksRaycasts = true; });
 
     }
 
-    public void ShowScreenShakeFX(){
-        var seq = LeanTween.sequence();
-        seq.append(LeanTween.alphaCanvas(screenShakeFX, 1f, 0.5f).setLoopPingPong());
-        seq.append(11f);
+    public void ShowScreenShakeFX(Action onComplete)
+    {
+        var seq = LeanTween.sequence( );
+        seq.append(LeanTween.alphaCanvas(screenShakeFX , 1f , 0.5f).setLoopPingPong( ));
+        seq.append(3f);
         seq.append(() => LeanTween.cancel(screenShakeFX.gameObject));
         seq.append(() => screenShakeFX.alpha = 0);
+        seq.append(() => onComplete?.Invoke( ));
 
     }
 

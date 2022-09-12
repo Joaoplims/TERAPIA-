@@ -17,20 +17,20 @@ MonoBehaviour:
   messages:
   - MessageText: "Esse \xE9 o meu antigo col\xE9gio, essa foi a sala que estudei
       por anos."
-    FontColor: {r: 0, g: 0, b: 0, a: 0}
-    FontSize: 14
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
     FontType: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   - MessageText: "Muita coisa aconteceu naquela \xE9poca, os moleques aproveitavam
       que eu era menor para me maltratar."
-    FontColor: {r: 0, g: 0, b: 0, a: 0}
-    FontSize: 14
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
     FontType: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   - MessageText: Tem algo escrito nessa lousa, parece uma mensagem... Pra mim?
-    FontColor: {r: 0, g: 0, b: 0, a: 0}
-    FontSize: 14
+    FontColor: {r: 1, g: 1, b: 1, a: 1}
+    FontSize: 30
     FontType: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   - MessageText: "\"\xC9 MELHOR VOC\xCA SER R\xC1PIDO E SABER SE ESCONDER, HOJE EU
       TE PEGO\""
-    FontColor: {r: 0, g: 0, b: 0, a: 0}
-    FontSize: 14
+    FontColor: {r: 1, g: 0, b: 0, a: 1}
+    FontSize: 32
     FontType: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

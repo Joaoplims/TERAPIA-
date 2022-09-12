@@ -10,22 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d31fa4d3d8dbc564ab3f7bf37d552233, type: 3}
-  m_Name: Quadro
+  m_Name: Enfermaria
   m_EditorClassIdentifier: 
-  DialogEntityName: 
+  DialogEntityName: "Voc\xEA"
   DialogEnityPicture: {fileID: 0}
   messages:
-  - MessageText: "A sala de artes, tantas mem\xF3rias, eu lembro de ficar ansioso
-      a semana toda esperando s\xF3 por essa aula."
+  - MessageText: "Ah! A enfermaria... Lembro-me bem daqui. Vinha at\xE9 este local
+      com bastante frequencia."
     FontColor: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 30
     FontType: {fileID: 0}
-  - MessageText: "Mas tem algo de errado, a porta se fechou. E essas pinturas s\xE3o
-      familiares... Sim! Fui eu que pintei elas."
+  - MessageText: "Na \xE9poca em que estudava havia um enfermeiro, seu nome era Miguel.
+      Eu semrpre inventava uma desculpa para vim aqui para me esconder do pessoal
+      que me perseguia."
     FontColor: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 30
     FontType: {fileID: 0}
-  - MessageText: Mas em qual ordem?
+  - MessageText: ...  E o Miguel sempre me ajudava e me confortava quando estava
+      aflito. Sempre com frases gentis. Eu gostava muito dele e serei sempre grato
+      por todos os momentos em que ele me ajudou
     FontColor: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 30
     FontType: {fileID: 0}

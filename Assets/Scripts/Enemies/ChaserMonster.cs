@@ -43,6 +43,9 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
     }
     private void Update()
     {
+        bool isMoving = agent.velocity.sqrMagnitude > 0.1f ? true:false;
+       Debug.Log(isMoving);
+      //  monsterAnimator.SetBool("Move", isMoving);
         if (LockInput)
         {
             agent.isStopped = true;
@@ -51,11 +54,16 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
         // handle states
         switch (currentState)
         {
+            case MonsterStates.ChaseForever:
+            agent.SetDestination(target.position);
+            break;
             case MonsterStates.Chassing:
             PerformChaseState( );
             break;
 
             // Wander State
+
+
             case MonsterStates.Wandering:
             PerformWanderState( );
             break;
@@ -70,7 +78,7 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
             break;
         }
 
-        Debug.Log(agent.velocity.sqrMagnitude);
+       
 
     }
 
@@ -122,11 +130,17 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
                 break;
             }
             break;
+            case MonsterStates.ChaseForever:
+            AudioManager.Instancia.PlaySfx(3);
+            agent.speed = 10;
+            break;
             default:
             break;
         }
     }
-
+    public void ChangeState(int state){
+        ChangeState((MonsterStates)state);
+    }
     private void PerformFollowNoiseState()
     {
         CheckAround( );
@@ -157,7 +171,7 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
         // Check Transition
         CheckAround( );
 
-
+        //Debug.Log(Vector3.Distance(transform.position , waypoints[currentWaypoint].position));
         // Perform Action    
         if (lockNextWPSelection == false)
         {
@@ -170,9 +184,10 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
                 lockNextWPSelection = true;
             }
         }
+    
         else
         {
-            if (Vector3.Distance(transform.position , waypoints[currentWaypoint].position) <= 0.1f)
+            if (Vector3.Distance(transform.position , waypoints[currentWaypoint].position) <= 2f)
                 lockNextWPSelection = false;
         }
 
@@ -244,11 +259,12 @@ public class ChaserMonster :MonoBehaviour, IEnableInput
 
     public enum MonsterStates
     {
-        None,
-        Wandering,
-        Chassing,
-        LookingFor,
-        FollowingNoise
+        None = 0,
+        Wandering = 1,
+        Chassing = 2,
+        LookingFor = 3,
+        FollowingNoise = 4,
+        ChaseForever = 5
     }
 }
 
